@@ -63,7 +63,7 @@ sup:
 sup-md:
 	node scripts/gen_support_md.js
 test:
-	@echo ${REPO}
+	go test $$(go list ./... | grep -v -E 'internal/service/mocks|internal/domain/mocks|internal/dto|internal/model|internal/query|internal/config|internal/app|/docs|internal/middleware|cmd')
 
 dev:
 	air -c ./scripts/.air.toml
